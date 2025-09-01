@@ -41,7 +41,8 @@ float ZMPT101B::getRmsVoltage(uint8_t loopCount)
 
 	for (uint8_t i = 0; i < loopCount; i++)
 	{
-		int zeroPoint = this->getZeroPoint();
+		int zeroPoint = this->zeroPoint;
+		if (zeroPoint == 0) zeroPoint = this->getZeroPoint();
 
 		int32_t Vnow = 0;
 		uint32_t Vsum = 0;
@@ -58,7 +59,7 @@ float ZMPT101B::getRmsVoltage(uint8_t loopCount)
 			Vsum += (Vnow * Vnow);
 			measurements_count++;
 		}
-		zeroPoint = Zsum / measurements_count; // new value
+		this->zeroPoint = Zsum / measurements_count; // store new value
 		
 		readingVoltage += sqrt(Vsum / measurements_count) / ADC_SCALE * VREF * this->sensitivity;
 	}
