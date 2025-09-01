@@ -32,6 +32,7 @@ private:
 	uint32_t period;
 	float 	 sensitivity;
 	int 	 getZeroPoint();
+	int		zeroPoint = 0;
 };
 
 }
