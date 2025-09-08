@@ -1,8 +1,6 @@
 #ifndef ZMPT101B_h
 #define ZMPT101B_h
 
-#include <Arduino.h>
-
 #define DEFAULT_FREQUENCY 50.0f
 #define DEFAULT_SENSITIVITY 500.0f
 
