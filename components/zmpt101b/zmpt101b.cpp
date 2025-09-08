@@ -56,7 +56,7 @@ void ZMPT101B::init_adc_(adc_unit_t u, adc_channel_t ch) {
 
   adc_oneshot_chan_cfg_t chan_cfg = {};
   chan_cfg.bitwidth = ADC_BITWIDTH_DEFAULT; // 12 bits
-  chan_cfg.atten    = ADC_ATTEN_DB_11;      // pleine échelle ~3.6V
+  chan_cfg.atten    = ADC_ATTEN_DB_12;      // pleine échelle ~3.6V
   ESP_ERROR_CHECK(adc_oneshot_config_channel(adc_, channel_, &chan_cfg));
 
   // Calibrage si dispo
